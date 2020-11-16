@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão</title>
+    <script src="src/index.js" defer></script>
+
+    <style>
+        html {
+            --color-primary: pink;
+            background-color: burlywood;
+        }
+        wch-button {
+            display: block;
+            margin: 8px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Componente: botão</h1>
+    <wch-button label="Default"></wch-button>
+    <wch-button label="default | disabled" disabled="true"></wch-button>
+    <wch-button label="deve ser azul" class="teste" type="primary"></wch-button>
+    <wch-button label="deve ser amarelo" type="primary"></wch-button>
+    <wch-button label="primary | disabled" type="primary" disabled="true"></wch-button>
+    <wch-button label="secondary" type="secondary"></wch-button>
+    <wch-button label="secondary | disabled" type="secondary" disabled="true"></wch-button>
+
+    <wch-button label="Muda tema" type="primary" id="mudaTema"></wch-button>
+
+    <script>
+        function teste() {
+        console.log('função de fora')
+        }
+        const buttons = document.querySelectorAll('wch-button');
+        buttons.forEach(button => button.addEventListener('clickButton', teste)); 
+
+
+        var darkMode = false;
+        var darkRule = `
+          html {
+            --color-primary: white;
+            --color-secondary: black;
+            background-color: #000;
+          }
+        `
+    
+        var lightRule = `
+          html {
+            --color-primary: #e91e63;
+            --color-secondary: green;
+          }
+          `
+    
+        console.log('teste:', document.getElementById('mudaTema'))
+        const button = document.getElementById('mudaTema').addEventListener('clickButton', () => {
+            const theme = darkMode ? lightRule : darkRule;
+            var style = document.createElement('style');
+            style.innerHTML = theme;
+            document.head.appendChild(style);
+            darkMode = !darkMode;
+        });
+      </script>
+    
+</body>
+</html>

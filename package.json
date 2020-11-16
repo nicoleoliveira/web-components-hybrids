@@ -1,0 +1,17 @@
+{
+  "name": "web-components-hybrids",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "2.4.4",
+    "hybrids": "^4.3.3",
+    "parcel-bundler": "^1.12.4"
+  }
+}
